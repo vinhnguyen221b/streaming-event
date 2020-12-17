@@ -1,0 +1,223 @@
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.card-container p {
+  margin: 0;
+}
+.card-container > .ant-tabs-card .ant-tabs-content {
+  height: 120px;
+  margin-top: -16px;
+}
+.card-container > .ant-tabs-card .ant-tabs-content > .ant-tabs-tabpane {
+  background: #fff;
+  padding: 16px;
+}
+.card-container > .ant-tabs-card > .ant-tabs-nav::before {
+  display: none;
+}
+.card-container > .ant-tabs-card .ant-tabs-tab,
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-tab {
+  border-color: transparent;
+  background: transparent;
+}
+.card-container > .ant-tabs-card .ant-tabs-tab-active,
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+  border-color: #fff;
+  background: #fff;
+}
+.code-box-demo {
+  background: #f5f5f5;
+  overflow: hidden;
+  padding: 24px;
+}
+[data-theme="compact"] .card-container > .ant-tabs-card .ant-tabs-content {
+  height: 120px;
+  margin-top: -8px;
+}
+[data-theme="dark"] .card-container > .ant-tabs-card .ant-tabs-tab {
+  border-color: transparent;
+  background: transparent;
+}
+[data-theme="dark"] .code-box-demo {
+  background: #000;
+}
+[data-theme="dark"]
+  .card-container
+  > .ant-tabs-card
+  .ant-tabs-content
+  > .ant-tabs-tabpane {
+  background: #141414;
+}
+[data-theme="dark"] .card-container > .ant-tabs-card .ant-tabs-tab-active {
+  border-color: #141414;
+  background: #141414;
+}
+
+/* ==================================================*/
+
+.ant-comment .ant-comment-inner {
+  padding: 8px 0;
+}
+.ant-comment .ant-comment-inner p {
+  font-size: 13px;
+}
+.event-tab {
+  height: 100vh;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+  color: #212529;
+}
+.programme-table > .table th,
+.table td {
+  border-top: 1px solid #000 !important;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.anticon {
+  font-size: 24px;
+  position: absolute;
+  bottom: 10px;
+}
+
+.question {
+  width: 100%;
+}
+
+.question-form {
+  background: #1b3862;
+  padding: 15px 30px;
+  border-radius: 10px;
+  width: 100%;
+}
+
+.ask-label {
+  color: white;
+  font-size: 24px;
+  padding-bottom: 12px;
+}
+
+.input-chat {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.chat-box {
+  height: 100%;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+}
+
+.chat-container .chat-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.chat-container .chat-list .chat-inner {
+  margin-bottom: 8px;
+  font-size: 13px;
+  text-align: justify;
+}
+
+.wrap-box {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+@media (min-width: 1200px) {
+  .left-container {
+    height: 100vh;
+  }
+}
+
+@media (max-width: 1200px) {
+  .chat-box {
+    height: 70%;
+    overflow-y: scroll;
+    padding-bottom: 50px;
+  }
+  .right-container {
+    position: absolute;
+    overflow-y: scroll;
+  }
+  .card-container {
+    height: 100%;
+  }
+
+  .ant-tabs {
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .question-form {
+    margin-top: 16px;
+    padding: 5px 15px;
+  }
+  .question p {
+    display: none;
+  }
+  .ask-label {
+    font-size: 18px;
+    padding-bottom: 6px;
+  }
+  .ant-image .logo {
+    width: 70% !important;
+  }
+  .input-chat {
+    bottom: 60px;
+  }
+  .chat-box {
+    padding-bottom: 0;
+  }
+  .wrap-box {
+    height: 65%;
+    overflow-y: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .question-form {
+    margin-top: 8px;
+    padding: 5px 15px;
+  }
+  .ask-label {
+    font-size: 16px;
+    padding-bottom: 4px;
+  }
+  .chat-box {
+    height: 80%;
+  }
+}
