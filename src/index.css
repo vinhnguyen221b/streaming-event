@@ -137,6 +137,7 @@ code {
 }
 
 .chat-box {
+  min-height: 285px;
   height: 100%;
   overflow-y: scroll;
   padding-bottom: 50px;
@@ -194,7 +195,7 @@ code {
     padding-bottom: 6px;
   }
   .ant-image .logo {
-    width: 70% !important;
+    width: 100% !important;
   }
   .input-chat {
     bottom: 60px;

@@ -7,10 +7,12 @@ import VideoPlayer from "./common/VideoPlayer";
 import cmtData from "../cmtData.json";
 import { SmileOutlined, SendOutlined } from "@ant-design/icons";
 import ChatList from "./common/ChatList";
+import { Redirect } from "react-router-dom";
 
 const { TabPane } = Tabs;
 const Streaming = (props) => {
   const [height, setHeight] = useState(0);
+  const [divSpan, setDivSpan] = useState(24);
   const refContainer = useRef(null);
   const refVideo = useRef(null);
   const isTablet = useMediaQuery({ query: "(max-width: 1200px)" });
@@ -25,16 +27,63 @@ const Streaming = (props) => {
       const chatHeight =
         refContainer.current.clientHeight - refVideo.current.clientHeight;
       setHeight(chatHeight);
+      // console.log(refContainer.current.clientHeight);
+      // console.log(refVideo.current.clientHeight);
+      // // console.log(height);
+      // if (
+      //   refContainer.current.clientHeight / refVideo.current.clientHeight <
+      //   2
+      // ) {
+      //   setDivSpan(20);
+      // } else if (
+      //   refContainer.current.clientHeight / refVideo.current.clientHeight <
+      //   1.5
+      // ) {
+      //   setDivSpan(16);
+      // } else {
+      //   setDivSpan(24);
+      // }
     }
+
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, [height]);
 
   return (
     <>
-      <Row ref={refContainer} style={isTablet && { height: "100vh" }}>
-        <Col xs={{ span: 24 }} xl={{ span: 16 }} className="left-container">
-          <Row style={!isTablet && { height: "100%" }}>
+      <Row
+        ref={refContainer}
+        style={
+          isTablet && {
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }
+        }
+      >
+        <Col
+          xs={{ span: divSpan }}
+          xl={{ span: divSpan - 9 }}
+          className="left-container"
+          style={{ transition: "all ease 0.3s" }}
+        >
+          <Row
+            style={
+              !isTablet
+                ? {
+                    height: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }
+                : {
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }
+            }
+          >
             <Col span={24} className="video-container" ref={refVideo}>
               <div
                 className="wrapper"
@@ -44,18 +93,19 @@ const Streaming = (props) => {
                   position: "relative",
                   zIndex: 1300,
                 }}
-              ></div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                }}
               >
-                {" "}
-                <VideoPlayer src="" />
+                <div
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                  }}
+                >
+                  {" "}
+                  <VideoPlayer src="" />
+                </div>
               </div>
             </Col>
             {!isTablet && (
@@ -95,7 +145,7 @@ const Streaming = (props) => {
         </Col>
         <Col
           xs={{ span: 24 }}
-          xl={{ span: 8 }}
+          xl={{ span: 9 }}
           className="right-container"
           style={isTablet && { height: height }}
         >
@@ -146,12 +196,71 @@ const Streaming = (props) => {
                   </Col>
                 </TabPane>
               )}
+              <TabPane
+                tab="Question"
+                className="tab-three"
+                key={!isTablet ? "1" : "2"}
+                style={{
+                  height: "calc(100vh - 10px)",
+                  position: "relative",
+                }}
+              >
+                <Col span={24} style={{ height: "100%" }}>
+                  <div
+                    className="question"
+                    style={{
+                      position: "relative",
+                      height: !isTablet ? "calc(100% - 10px)" : height - 50,
+                    }}
+                  >
+                    <div className="question-form">
+                      <form
+                        action="/question"
+                        method="post"
+                        style={{ position: "relative" }}
+                      >
+                        <div className="ask-label">Ask a question</div>
+                        <input
+                          type="text"
+                          name=""
+                          id=""
+                          style={{ width: "100%", padding: "5px" }}
+                        />
+                        <SendOutlined
+                          style={{
+                            right: "15px",
+                            fontSize: "22px",
+                            bottom: "5px",
+                          }}
+                        />
+                      </form>
+                    </div>
+                    <div
+                      style={{
+                        textAlign: "center",
+                        position: "absolute",
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        marginLeft: 0,
+                        marginRight: 0,
+                      }}
+                    >
+                      <Image
+                        className="logo"
+                        src={logo}
+                        style={{ textAlign: "center", margin: "1rem 0" }}
+                      />
+                    </div>
+                  </div>
+                </Col>
+              </TabPane>
 
               <TabPane
                 tab="Programme"
-                key={!isTablet ? "1" : "2"}
+                key="3"
                 style={{
-                  height: "calc(100vh - 50px)",
+                  height: "calc(100vh - 10px)",
                   position: "relative",
                 }}
               >
@@ -254,50 +363,6 @@ const Streaming = (props) => {
                     </table>
                   </div>
                 </div>
-              </TabPane>
-
-              <TabPane
-                tab="Question"
-                className="tab-three"
-                key="3"
-                style={{
-                  height: "calc(100vh - 50px)",
-                  position: "relative",
-                }}
-              >
-                <Col span={24}>
-                  <div className="question">
-                    <div className="question-form">
-                      <form
-                        action="/question"
-                        method="post"
-                        style={{ position: "relative" }}
-                      >
-                        <div className="ask-label">Ask a question</div>
-                        <input
-                          type="text"
-                          name=""
-                          id=""
-                          style={{ width: "100%", padding: "5px" }}
-                        />
-                        <SendOutlined
-                          style={{
-                            right: "15px",
-                            fontSize: "22px",
-                            bottom: "5px",
-                          }}
-                        />
-                      </form>
-                    </div>
-                  </div>
-                  <div style={{ textAlign: "center" }}>
-                    <Image
-                      className="logo"
-                      src={logo}
-                      style={{ textAlign: "center", margin: "1rem 0" }}
-                    />
-                  </div>
-                </Col>
               </TabPane>
             </Tabs>
           </div>
