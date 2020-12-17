@@ -172,7 +172,7 @@ code {
   }
   .right-container {
     /* position: absolute; */
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
   }
   .card-container {
     height: 100%;
