@@ -171,7 +171,7 @@ code {
     padding-bottom: 50px;
   }
   .right-container {
-    position: absolute;
+    /* position: absolute; */
     overflow-y: scroll;
   }
   .card-container {
