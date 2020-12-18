@@ -1,13 +1,11 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useMediaQuery } from "react-responsive";
 import { Row, Col, Tabs, Input, Image } from "antd";
-// import ReactHtmlParser from "react-html-parser";
 import logo from "../logo.svg";
 import VideoPlayer from "./common/VideoPlayer";
 import cmtData from "../cmtData.json";
 import { SmileOutlined, SendOutlined } from "@ant-design/icons";
 import ChatList from "./common/ChatList";
-import { Redirect } from "react-router-dom";
 
 const { TabPane } = Tabs;
 const Streaming = (props) => {
@@ -63,8 +61,8 @@ const Streaming = (props) => {
         }
       >
         <Col
-          xs={{ span: divSpan }}
-          xl={{ span: divSpan - 9 }}
+          xs={{ span: 24 }}
+          xl={{ span: 15 }}
           className="left-container"
           style={{ transition: "all ease 0.3s" }}
         >
